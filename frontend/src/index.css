@@ -1,3 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+* {
+  font-family: "Rubik", sans-serif;
+}
+
+@layer base {
+  :root {
+    --color-primary: #3bb77e;
+    --color-text: #253d4e;
+    --color-text-second: #838383;
+  }
+}
+
+.hero {
+  height: calc(100vh - 133px);
+}

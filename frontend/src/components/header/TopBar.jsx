@@ -3,9 +3,9 @@ import { SlPhone } from "react-icons/sl";
 
 export default function TopBar() {
   return (
-    <div className="border-t py-2">
-      <div className="container flex items-center justify-between">
-        <button className="flex items-center p-2 rounded cursor-pointer bg-[--color-primary] text-white">
+    <div className="border-t py-4">
+      <div className="container flex flex-wrap items-center justify-between">
+        <button className="flex w-screen md:w-fit mb-2 items-center p-2 rounded cursor-pointer bg-[--color-primary] text-white">
           <BiCategory className="text-xl mr-2" />
           Browse All Categories
         </button>

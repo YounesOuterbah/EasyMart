@@ -1,6 +1,5 @@
 import Slider from "react-slick";
 import { FiShoppingCart } from "react-icons/fi";
-
 import { myProducts } from "../../products";
 
 export default function Carousel() {
@@ -49,7 +48,7 @@ export default function Carousel() {
               className="w-full h-full object-cover rounded-t-lg"
               alt={product.description}
             />
-            <span className="text-[--color-text-second]">{product.type}</span>
+            <span className="text-[--color-text-second] capitalize">{product.type}</span>
             <h1 className="font-bold">{product.title}</h1>
             <h1>{product.rating} ⭐</h1>
             <div className="flex items-center justify-between">

@@ -78,7 +78,7 @@ export default function Categories() {
     <div className="py-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {category.map((cate) => (
         <div
-          key={cate.id}
+          key={cate.id + Math.random() * 100}
           className="rounded cursor-pointer bg-gradient-to-r from-sky-500 to-indigo-500 shadow-md p-2 m-2"
         >
           <img

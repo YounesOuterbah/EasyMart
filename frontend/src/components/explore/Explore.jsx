@@ -1,4 +1,5 @@
 import Categories from "../categories/Categories";
+import { Link } from "react-router-dom";
 
 export default function Explore() {
   return (
@@ -6,9 +7,12 @@ export default function Explore() {
       <div className="container">
         <div className=" flex items-center justify-between">
           <h1 className="text-3xl text-[--color-text]">Explore Categories</h1>
-          <h1 className="text-lg text-[--color-text] cursor-pointer duration-300 hover:text-red-600">
+          <Link
+            to="category"
+            className="text-lg text-[--color-text] cursor-pointer duration-300 hover:text-red-600"
+          >
             See All &gt;
-          </h1>
+          </Link>
         </div>
         <Categories />
       </div>

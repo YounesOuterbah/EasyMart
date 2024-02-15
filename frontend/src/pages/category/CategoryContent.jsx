@@ -2,6 +2,7 @@ import { IoGrid, IoMenu } from "react-icons/io5";
 
 import { myProducts } from "../../products";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function CategoryContent() {
   const [view, setView] = useState("Grid");
@@ -35,16 +36,26 @@ export default function CategoryContent() {
         }  gap-2`}
       >
         {myProducts.map((product, id) => (
-          <div key={id} className="rounded  bg-red-200 ">
+          <Link
+            to={`/category/${id}`}
+            key={id}
+            className={`rounded ${view === "List" && "flex"} bg-[#eee]`}
+          >
             <img
               src={product.filename}
-              className="w-full h-[150px] object-cover rounded-t-lg"
+              className={`w-full ${
+                view === "Grid" ? "h-[150px]" : "h-[250px] w-[250px]"
+              } object-cover rounded-t-lg`}
               alt={product.description}
             />
             <div className="p-2">
-              <span className="text-[--color-text-second] capitalize">{product.type}</span>
-              <h1 className="font-bold text-sm">{product.title}</h1>
-              <h1>{product.rating} ⭐</h1>
+              <span
+                className={`text-[--color-text-second] capitalize ${view === "List" && "text-xl"}`}
+              >
+                {product.type}
+              </span>
+              <h1 className={`font-bold ${view === "List" && "text-2xl"}`}>{product.title}</h1>
+              <h1 className={`${view === "List" && "text-2xl"}`}>{product.rating} ⭐</h1>
               <div className="flex items-center justify-between">
                 <div className="text-[--color-primary] font-bold">${product.price}</div>
                 <button className="cursor-pointer flex mt-2 items-center gap-2 bg-[--color-primary] text-white px-4 py-1 rounded">
@@ -52,7 +63,7 @@ export default function CategoryContent() {
                 </button>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

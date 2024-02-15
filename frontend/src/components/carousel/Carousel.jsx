@@ -1,6 +1,7 @@
 import Slider from "react-slick";
 import { FiShoppingCart } from "react-icons/fi";
 import { myProducts } from "../../products";
+import { Link } from "react-router-dom";
 
 export default function Carousel() {
   const settings = {
@@ -42,7 +43,7 @@ export default function Carousel() {
     <div className="slider-container py-6">
       <Slider {...settings}>
         {myProducts.map((product, id) => (
-          <div key={id} className="!w-max-[270px] !h-[280px] px-2 rounded">
+          <Link to={`/category/${id}`} key={id} className="!w-max-[270px] !h-[280px] px-2 rounded">
             <img
               src={product.filename}
               className="w-full h-full object-cover rounded-t-lg"
@@ -58,7 +59,7 @@ export default function Carousel() {
                 Add
               </button>
             </div>
-          </div>
+          </Link>
         ))}
       </Slider>
     </div>

@@ -1,10 +1,27 @@
 import { useParams } from "react-router-dom";
 import { myProducts } from "../../products";
 import { FaStar } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/slices/cartSlice";
+import { useState } from "react";
 
 export default function CategoryProduct() {
+  const dispatch = useDispatch();
   const { id } = useParams();
-  const filterProduct = myProducts.find((ele, index) => index === +id);
+  const filterProduct = myProducts.find((ele) => ele.id === +id);
+  const [qty, setQty] = useState(1);
+
+  const addToCartHandler = () => {
+    dispatch(
+      addToCart({
+        id: filterProduct.id,
+        qty: +qty,
+        price: filterProduct.price,
+        title: filterProduct.title,
+        filename: filterProduct.filename,
+      })
+    );
+  };
 
   return (
     <section className="py-6">
@@ -42,12 +59,20 @@ export default function CategoryProduct() {
                 <span className="ml-4 text-gray-400">In Stock</span>
               </div>
               <div className="flex items-center space-x-4">
-                <button className="px-4 py-2 text-sm font-semibold text-gray-800 uppercase transition-colors duration-200 transform bg-gray-100 border border-transparent rounded-md hover:bg-gray-200 focus:outline-none focus:bg-gray-200">
+                <button
+                  onClick={addToCartHandler}
+                  className="px-4 py-2 text-sm font-semibold text-gray-800 uppercase transition-colors duration-200 transform bg-gray-100 border border-transparent rounded-md hover:bg-gray-200 focus:outline-none focus:bg-gray-200"
+                >
                   Add to cart
                 </button>
-                <button className="px-4 py-2 text-sm font-semibold text-gray-800 uppercase transition-colors duration-200 transform bg-gray-100 border border-transparent rounded-md hover:bg-gray-200 focus:outline-none focus:bg-gray-200">
-                  Buy now
-                </button>
+                <input
+                  value={qty}
+                  onChange={(e) => setQty(e.target.value)}
+                  type="number"
+                  min="1"
+                  max="10"
+                  className="px-4 py-2 text-sm font-semibold text-gray-800 uppercase transition-colors duration-200 transform bg-gray-100 border border-transparent rounded-md hover:bg-gray-200 focus:outline-none focus:bg-gray-200"
+                />
               </div>
             </div>
           </div>

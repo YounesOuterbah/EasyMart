@@ -8,6 +8,7 @@ export const myProducts = [
     width: 400,
     price: 28.1,
     rating: 4,
+    id: 1,
   },
   {
     title: "Sweet fresh stawberry",
@@ -18,6 +19,7 @@ export const myProducts = [
     width: 299,
     price: 29.45,
     rating: 4,
+    id: 2,
   },
   {
     title: "Asparagus",
@@ -28,6 +30,7 @@ export const myProducts = [
     width: 299,
     price: 18.95,
     rating: 3,
+    id: 3,
   },
   {
     title: "Green smoothie",
@@ -39,6 +42,7 @@ export const myProducts = [
     width: 399,
     price: 17.68,
     rating: 4,
+    id: 4,
   },
   {
     title: "Raw legums",
@@ -49,6 +53,7 @@ export const myProducts = [
     width: 299,
     price: 17.11,
     rating: 2,
+    id: 5,
   },
   {
     title: "Baking cake",
@@ -60,6 +65,7 @@ export const myProducts = [
     width: 675,
     price: 11.14,
     rating: 4,
+    id: 6,
   },
   {
     title: "Pesto with basil",
@@ -70,6 +76,7 @@ export const myProducts = [
     width: 299,
     price: 18.19,
     rating: 2,
+    id: 7,
   },
   {
     title: "Hazelnut in black ceramic bowl",
@@ -81,6 +88,7 @@ export const myProducts = [
     width: 301,
     price: 27.35,
     rating: 0,
+    id: 8,
   },
   {
     title: "Fresh stawberry",
@@ -91,6 +99,7 @@ export const myProducts = [
     width: 399,
     price: 28.59,
     rating: 4,
+    id: 9,
   },
   {
     title: "Lemon and salt",
@@ -101,6 +110,7 @@ export const myProducts = [
     width: 299,
     price: 15.79,
     rating: 5,
+    id: 10,
   },
   {
     title: "Homemade bread",
@@ -111,6 +121,7 @@ export const myProducts = [
     width: 301,
     price: 17.48,
     rating: 3,
+    id: 11,
   },
   {
     title: "Legums",
@@ -121,6 +132,7 @@ export const myProducts = [
     width: 399,
     price: 14.77,
     rating: 0,
+    id: 12,
   },
   {
     title: "Fresh tomato",
@@ -131,6 +143,7 @@ export const myProducts = [
     width: 903,
     price: 16.3,
     rating: 2,
+    id: 13,
   },
   {
     title: "Healthy breakfast",
@@ -142,6 +155,7 @@ export const myProducts = [
     width: 350,
     price: 13.02,
     rating: 2,
+    id: 14,
   },
   {
     title: "Green beans",
@@ -152,6 +166,7 @@ export const myProducts = [
     width: 300,
     price: 28.79,
     rating: 1,
+    id: 15,
   },
   {
     title: "Baked stuffed portabello mushrooms",
@@ -162,6 +177,7 @@ export const myProducts = [
     width: 400,
     price: 20.31,
     rating: 1,
+    id: 16,
   },
   {
     title: "Strawberry jelly",
@@ -172,6 +188,7 @@ export const myProducts = [
     width: 600,
     price: 14.18,
     rating: 1,
+    id: 17,
   },
   {
     title: "Pears juice",
@@ -182,6 +199,7 @@ export const myProducts = [
     width: 398,
     price: 19.49,
     rating: 4,
+    id: 18,
   },
   {
     title: "Fresh pears",
@@ -192,6 +210,7 @@ export const myProducts = [
     width: 398,
     price: 15.12,
     rating: 5,
+    id: 19,
   },
   {
     title: "Caprese salad",
@@ -202,6 +221,7 @@ export const myProducts = [
     width: 600,
     price: 16.76,
     rating: 5,
+    id: 20,
   },
   {
     title: "Oranges",
@@ -213,6 +233,7 @@ export const myProducts = [
     width: 274,
     price: 21.48,
     rating: 4,
+    id: 21,
   },
   {
     title: "Vegan food",
@@ -223,6 +244,7 @@ export const myProducts = [
     width: 299,
     price: 29.66,
     rating: 4,
+    id: 22,
   },
   {
     title: "Breakfast with muesli",
@@ -233,6 +255,7 @@ export const myProducts = [
     width: 299,
     price: 22.7,
     rating: 2,
+    id: 23,
   },
   {
     title: "Honey",
@@ -243,6 +266,7 @@ export const myProducts = [
     width: 299,
     price: 17.01,
     rating: 2,
+    id: 24,
   },
   {
     title: "Breakfast with cottage",
@@ -253,6 +277,7 @@ export const myProducts = [
     width: 398,
     price: 14.05,
     rating: 1,
+    id: 25,
   },
   {
     title: "Strawberry smoothie",
@@ -264,6 +289,7 @@ export const myProducts = [
     width: 400,
     price: 28.86,
     rating: 2,
+    id: 26,
   },
   {
     title: "Strawberry and mint",
@@ -274,6 +300,7 @@ export const myProducts = [
     width: 299,
     price: 26.21,
     rating: 4,
+    id: 27,
   },
   {
     title: "Ricotta",
@@ -284,6 +311,7 @@ export const myProducts = [
     width: 398,
     price: 27.81,
     rating: 5,
+    id: 28,
   },
   {
     title: "Cuban sandwiche",
@@ -294,6 +322,7 @@ export const myProducts = [
     width: 300,
     price: 18.5,
     rating: 4,
+    id: 29,
   },
   {
     title: "Granola",
@@ -305,6 +334,7 @@ export const myProducts = [
     width: 300,
     price: 29.97,
     rating: 3,
+    id: 30,
   },
   {
     title: "Smoothie with chia seeds",
@@ -316,6 +346,7 @@ export const myProducts = [
     width: 900,
     price: 25.26,
     rating: 5,
+    id: 31,
   },
   {
     title: "Yogurt",
@@ -326,6 +357,7 @@ export const myProducts = [
     width: 299,
     price: 27.61,
     rating: 4,
+    id: 32,
   },
   {
     title: "Sandwich with salad",
@@ -336,6 +368,7 @@ export const myProducts = [
     width: 398,
     price: 22.48,
     rating: 5,
+    id: 33,
   },
   {
     title: "Cherry",
@@ -346,6 +379,7 @@ export const myProducts = [
     width: 400,
     price: 14.35,
     rating: 5,
+    id: 34,
   },
   {
     title: "Raw asparagus",
@@ -356,6 +390,7 @@ export const myProducts = [
     width: 400,
     price: 22.97,
     rating: 4,
+    id: 35,
   },
   {
     title: "Corn",
@@ -366,6 +401,7 @@ export const myProducts = [
     width: 300,
     price: 13.55,
     rating: 2,
+    id: 36,
   },
   {
     title: "Vegan",
@@ -376,6 +412,7 @@ export const myProducts = [
     width: 398,
     price: 28.96,
     rating: 5,
+    id: 37,
   },
   {
     title: "Fresh blueberries",
@@ -387,6 +424,7 @@ export const myProducts = [
     width: 321,
     price: 21.01,
     rating: 4,
+    id: 38,
   },
   {
     title: "Smashed avocado",
@@ -397,6 +435,7 @@ export const myProducts = [
     width: 450,
     price: 25.88,
     rating: 0,
+    id: 39,
   },
   {
     title: "Italian ciabatta",
@@ -408,6 +447,7 @@ export const myProducts = [
     width: 565,
     price: 15.18,
     rating: 1,
+    id: 40,
   },
   {
     title: "Rustic breakfast",
@@ -419,6 +459,7 @@ export const myProducts = [
     width: 307,
     price: 21.32,
     rating: 0,
+    id: 41,
   },
   {
     title: "Sliced lemons",
@@ -430,6 +471,7 @@ export const myProducts = [
     width: 900,
     price: 27.14,
     rating: 2,
+    id: 42,
   },
   {
     title: "Plums",
@@ -440,6 +482,7 @@ export const myProducts = [
     width: 299,
     price: 19.18,
     rating: 1,
+    id: 43,
   },
   {
     title: "French fries",
@@ -450,17 +493,19 @@ export const myProducts = [
     width: 400,
     price: 18.32,
     rating: 3,
+    id: 44,
   },
   {
     title: "Strawberries",
     type: "fruit",
     description:
-      "Healthy breakfast set. rice cereal or porridge with fresh strawberry, apricots, almond and honey over white rustic wood backdrop, top view, \u0000",
+      "Healthy breakfast set. rice cereal or porridge with fresh strawberry, apricots, almond and honey over white rustic wood backdrop, top view, \x00",
     filename: "44.jpg",
     height: 450,
     width: 352,
     price: 15.13,
     rating: 3,
+    id: 45,
   },
   {
     title: "Ground beef meat burger",
@@ -472,6 +517,7 @@ export const myProducts = [
     width: 675,
     price: 11.73,
     rating: 5,
+    id: 46,
   },
   {
     title: "Tomatoes",
@@ -482,6 +528,7 @@ export const myProducts = [
     width: 675,
     price: 26.03,
     rating: 4,
+    id: 47,
   },
   {
     title: "Basil",
@@ -492,6 +539,7 @@ export const myProducts = [
     width: 678,
     price: 15.19,
     rating: 4,
+    id: 48,
   },
   {
     title: "Fruits bouquet",
@@ -502,6 +550,7 @@ export const myProducts = [
     width: 401,
     price: 18.18,
     rating: 1,
+    id: 49,
   },
   {
     title: "Peaches on branch",
@@ -513,5 +562,6 @@ export const myProducts = [
     width: 400,
     price: 25.62,
     rating: 3,
+    id: 50,
   },
 ];

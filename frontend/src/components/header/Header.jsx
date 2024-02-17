@@ -1,8 +1,10 @@
 import { FiSearch, FiShoppingCart } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import img from "/shopping-bag.png";
+import { useSelector } from "react-redux";
 
 export default function Header() {
+  const { cartItems } = useSelector((state) => state.cart);
   return (
     <div className="py-4">
       <div className="container flex flex-wrap items-center justify-between">
@@ -24,8 +26,13 @@ export default function Header() {
           </button>
         </div>
         <ul className="flex gap-4 items-center ml-auto md:ml-0">
-          <Link to="cart" className="cursor-pointer">
+          <Link to="cart" className="cursor-pointer relative">
             <FiShoppingCart className="text-2xl" />
+            {cartItems.length > 0 && (
+              <span className="bg-[--color-primary] text-white p-2 w-5 h-5 absolute flex items-center justify-center -top-2 -right-2 rounded-full">
+                {cartItems.length}
+              </span>
+            )}
           </Link>
           <Link to="login" className="cursor-pointer">
             Login

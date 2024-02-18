@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 export default function Header() {
   const { cartItems } = useSelector((state) => state.cart);
+  const { currentUser } = useSelector((state) => state.user);
   return (
     <div className="py-4">
       <div className="container flex flex-wrap items-center justify-between">
@@ -34,9 +35,17 @@ export default function Header() {
               </span>
             )}
           </Link>
-          <Link to="login" className="cursor-pointer">
-            Login
-          </Link>
+          {currentUser ? (
+            <Link to="/profile">
+              <img
+                src={currentUser.profilePicture}
+                className="rounded-full w-8 h-8 object-cover"
+                alt="profile"
+              />
+            </Link>
+          ) : (
+            <Link to="/login">Login</Link>
+          )}
         </ul>
       </div>
     </div>

@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import OAth from "../../components/OAth";
 
 export default function Register() {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
@@ -21,6 +23,8 @@ export default function Register() {
       setLoading(false);
       if (res.status === 409) {
         return setError(true);
+      } else {
+        navigate("/login");
       }
     } catch (error) {
       setLoading(false);
@@ -59,6 +63,7 @@ export default function Register() {
           >
             {loading ? "Loading ..." : "Continue"}
           </button>
+          <OAth />
         </form>
         <div className="flex gap-2 mt-5">
           <p>Already have an account?</p>

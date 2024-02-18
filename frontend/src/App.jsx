@@ -7,6 +7,8 @@ import Cart from "./pages/cart/Cart";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import CategoryProduct from "./components/categories/CategoryProduct";
+import PrivateRoute from "./components/PrivateRoute";
+import Profile from "./components/profile/Profile";
 
 function App() {
   return (
@@ -18,6 +20,9 @@ function App() {
         <Route path="/category" element={<Category />} />
         <Route path="/category/:id" element={<CategoryProduct />} />
         <Route path="/login" element={<Login />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/profile" element={<Profile />} />
+        </Route>
         <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />

@@ -60,19 +60,26 @@ export default function Category() {
       ? filterdStarts.sort((a, b) => b.price - a.price)
       : filterdStarts;
 
+  const [toggle, setToggle] = useState(false);
+
   return (
     <div className="py-6">
-      <div className="container flex">
+      <div className="container flex relative">
+        <div className={`${toggle && "bg-[#00000091] top-0 h-full w-full fixed"}`}></div>
         <CategorySide
           setFilterItem={setFilterItem}
           setfilterStar={setfilterStar}
           categoryItems={categoryItems}
           starRatings={starRatings}
+          toggle={toggle}
+          setToggle={setToggle}
         />
         <CategoryContent
           filterdAllItems={sortedItems}
           setSortItems={setSortItems}
           sortItems={sortItems}
+          setToggle={setToggle}
+          toggle={toggle}
         />
       </div>
     </div>

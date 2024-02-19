@@ -4,12 +4,18 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/slices/cartSlice";
 
-export default function CategoryContent({ filterdAllItems, setSortItems, sortItems }) {
+export default function CategoryContent({ filterdAllItems, setSortItems, toggle, setToggle }) {
   const [view, setView] = useState("Grid");
   const dispatch = useDispatch();
   return (
     <div className="w-full">
-      <ul className="flex items-center justify-between">
+      <button
+        onClick={() => setToggle((prev) => !prev)}
+        className={`xl:hidden bg-[#eee] p-2 rounded mb-2`}
+      >
+        category menu
+      </button>
+      <ul className="flex flex-wrap gap-2 items-center justify-between">
         <li className="flex gap-0">
           <IoGrid
             onClick={() => setView("Grid")}

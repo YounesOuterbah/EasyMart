@@ -69,6 +69,8 @@ export default function Carousel() {
                         price: product.price,
                         title: product.title,
                         filename: product.filename,
+                        type: product.type,
+                        rating:product.rating,
                         qty: 1,
                       })
                     )

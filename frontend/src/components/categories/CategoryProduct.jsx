@@ -18,6 +18,8 @@ export default function CategoryProduct() {
         qty: +qty,
         price: filterProduct.price,
         title: filterProduct.title,
+        type: filterProduct.type,
+        rating: filterProduct.rating,
         filename: filterProduct.filename,
       })
     );

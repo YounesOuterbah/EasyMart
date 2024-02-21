@@ -1,20 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
 import { deleteFromCart, updateQuantity } from "../../redux/slices/cartSlice";
+import { FaRegTrashCan } from "react-icons/fa6";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 
 export default function Cart() {
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
+  const total = cartItems.reduce((acc, cur) => acc + cur.price * cur.qty, 0).toFixed(2);
 
   return (
     <div className="py-6">
-      <div className="container flex justify-between gap-4">
+      <div className="container flex justify-between gap-4 flex-col xl:flex-row">
         <div className="w-full">
-          <div className="flex justify-between">
-            <div>Shopping Cart</div>
+          <div className="flex justify-between mb-2">
+            <div className="flex items-center gap-2 text-xl">
+              Shopping Cart <AiOutlineShoppingCart />
+            </div>
             <div>{cartItems.length} Items</div>
           </div>
-          <hr />
-          <table className="bg-red-200 text-left rounded w-full">
+          <table className="text-left rounded w-full bg-[#eee]">
             <thead className="p-2">
               <tr>
                 <th className="p-2">PRODUCT DETAILS</th>
@@ -26,12 +30,14 @@ export default function Cart() {
             {cartItems.map((item) => (
               <tbody key={item.id}>
                 <tr>
-                  <td className="p-2 flex">
+                  <td className="flex p-2">
                     <img src={item.filename} className="w-24" />
                     <div className="ml-4 flex flex-col justify-between">
                       <h1 className="font-bold text-xl">{item.title}</h1>
+                      <p>category: {item.type}</p>
+                      <p>rating: {item.rating}⭐</p>
                       <button
-                        className="font-bold text-4xl w-fit"
+                        className="font-bold text-xl w-fit"
                         onClick={() =>
                           dispatch(
                             deleteFromCart({
@@ -40,17 +46,25 @@ export default function Cart() {
                           )
                         }
                       >
-                        remove
+                        <FaRegTrashCan className="duration-300 hover:text-red-600" />
                       </button>
                     </div>
                   </td>
                   <td className="p-2">
                     <button
+                      className="bg-white p-2 rounded-l"
                       onClick={() =>
                         dispatch(
                           updateQuantity({
                             id: item.id,
-                            qty: item.qty != 0 ? item.qty - 1 : (item.qty = 0),
+                            qty:
+                              item.qty != 1
+                                ? item.qty - 1
+                                : dispatch(
+                                    deleteFromCart({
+                                      id: item.id,
+                                    })
+                                  ),
                           })
                         )
                       }
@@ -59,13 +73,14 @@ export default function Cart() {
                     </button>
                     <input
                       type="number"
-                      className="w-10 text-center focus:outline-none p-2"
+                      className="w-12 text-center focus:outline-none p-2"
                       min="1"
                       max="10"
                       value={item.qty}
                       readOnly
                     />
                     <button
+                      className="bg-white p-2 rounded-r"
                       onClick={() =>
                         dispatch(
                           updateQuantity({
@@ -85,14 +100,13 @@ export default function Cart() {
             ))}
           </table>
         </div>
-        <div className="bg-[#eee] p-2 rounded w-[20%]">
-          <h2>Order Summary</h2>
-          <hr />
-          <div>subtotal: $20</div>
-          <div>shipping: $0.3</div>
-          <hr />
-          <p>Total: ${cartItems.reduce((acc, cur) => acc + cur.price * cur.qty, 0).toFixed(2)}</p>
-          <button>CHECKOUT</button>
+        <div className="bg-[#eee] p-2 rounded xl:w-[25%] h-fit w-full">
+          <h2 className="text-2xl font-bold uppercase">Order Summary</h2>
+          <div className="my-2">shipping: ${total >= 50 ? 0 : 13.2}</div>
+          <p className="my-2">Total: ${total}</p>
+          <button className="w-full my-2 bg-[--color-primary] text-white rounded duration-300 hover:bg-[#44e098]">
+            CHECKOUT
+          </button>
         </div>
       </div>
     </div>

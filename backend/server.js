@@ -3,14 +3,12 @@ import "dotenv/config.js";
 import { connectDB } from "./db/db.js";
 import userRoutes from "./routes/userRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
-import { error } from "./middlewares/Error.js";
-import cors from "cors";
+import { error } from "./middlewares/error.js";
 
 connectDB();
 
 const app = express();
 app.use(express.json());
-// app.use(cors());
 
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);

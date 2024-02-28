@@ -71,6 +71,7 @@ export default function Profile() {
       }
       dispatch(updateUserSuccess(data));
       setUpdateSuccess(true);
+      console.log(res);
     } catch (error) {
       dispatch(updateUserFailure(error));
     }

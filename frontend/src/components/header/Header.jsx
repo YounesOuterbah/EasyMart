@@ -2,10 +2,21 @@ import { FiSearch, FiShoppingCart } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import img from "/shopping-bag.png";
 import { useSelector } from "react-redux";
+import { myProducts } from "../../products";
+import { useState } from "react";
 
 export default function Header() {
   const { cartItems } = useSelector((state) => state.cart);
   const { currentUser } = useSelector((state) => state.user);
+  const [filterData, setFilterData] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+
+  const filterProduct = (e) => {
+    const serachedWord = e.target.value.toLowerCase();
+    const filterMyProducts = myProducts.filter((x) => x.title.toLowerCase().includes(serachedWord));
+    setFilterData(filterMyProducts);
+  };
+
   return (
     <div className="py-4">
       <div className="container flex flex-wrap items-center justify-between">
@@ -16,15 +27,28 @@ export default function Header() {
             <div className="-mt-1 text-slate-400 text-sm">GROCERY</div>
           </div>
         </Link>
-        <div className="flex w-screen md:w-1/2 my-4 md:my-0">
+        <div className="flex w-screen md:w-1/2 my-4 md:my-0 relative">
           <input
             type="search"
             className="border w-full p-2 outline-none placeholder:text-slate-400 border-none bg-slate-100"
             placeholder="Search for items..."
+            onChange={filterProduct}
           />
           <button className="bg-[--color-primary] text-white py-2 px-4">
             <FiSearch className="text-[25px]" />
           </button>
+          <div className="size-full absolute top-10 z-20">
+            {filterData.map((x, id) => (
+              <Link
+                to={`/category/${x.id}`}
+                key={id}
+                className="bg-slate-400 text-white p-2 block hover:bg-slate-900 duration-300 cursor-pointer"
+                onClick={() => setFilterData([])}
+              >
+                {x.title}
+              </Link>
+            ))}
+          </div>
         </div>
         <ul className="flex gap-4 items-center ml-auto md:ml-0">
           <Link to="cart" className="cursor-pointer relative">

@@ -4,6 +4,7 @@ import { connectDB } from "./db/db.js";
 import userRoutes from "./routes/userRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import { error } from "./middlewares/error.js";
+import cors from "cors";
 
 connectDB();
 

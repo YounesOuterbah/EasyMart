@@ -14,6 +14,9 @@ app.use(express.json());
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use(error);
+
+app.options("*", cors());
+
 app.use(cors({
     origin: ["https://grocery-store-intern.vercel.app"],
     credentials: true,

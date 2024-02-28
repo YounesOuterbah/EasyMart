@@ -20,6 +20,7 @@ export default function Home() {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           dispatch(setLocationAllowed(true));
+          setToggle(false);
         },
         () => {
           dispatch(setLocationAllowed(false));

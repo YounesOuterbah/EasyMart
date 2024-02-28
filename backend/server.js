@@ -18,7 +18,7 @@ app.use(error);
 app.options("*", cors());
 
 app.use(cors({
-    origin: ["https://grocery-store-intern.vercel.app"],
+    origin: ["https://grocery-store-intern-uj7c.vercel.app"],
     credentials: true,
   }));
 

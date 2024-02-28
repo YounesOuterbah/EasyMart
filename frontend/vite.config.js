@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "mongodb+srv://eunice99x:<password>@younescluster.c5ymnnt.mongodb.net/",
+        target: "http://localhost:5001",
         secure: false,
       },
     },

@@ -14,6 +14,7 @@ export default function OAth() {
 
       const result = await signInWithPopup(auth, provider);
       const res = await fetch("https://grocery-store-intern.vercel.app/api/auth/google", {
+        mode: "no-cors",
         method: "POST",
         headers: {
           "Content-Type": "application/json",

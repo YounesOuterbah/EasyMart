@@ -15,6 +15,7 @@ export default function Register() {
     try {
       setLoading(true);
       const res = await fetch("https://grocery-store-intern.vercel.app/api/auth/signup", {
+        mode: "no-cors",
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

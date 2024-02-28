@@ -16,7 +16,8 @@ export default function Login() {
     e.preventDefault();
     try {
       dispatch(signInStart());
-      const res = await fetch("/api/auth/signin", {
+      const res = await fetch("https://grocery-store-intern.vercel.app/api/auth/signin", {
+        mode: "no-cors",
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

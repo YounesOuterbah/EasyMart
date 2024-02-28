@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function Test() {
+export default function Location() {
   const [latitude, setLatitude] = useState();
   const [longitude, setLongitude] = useState();
   useEffect(() => {

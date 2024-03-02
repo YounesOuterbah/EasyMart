@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: "*", // Specify your frontend origin
+  origin: true // Specify your frontend origin
   credentials: true, // Allow credentials (cookies)
 };
 

@@ -3,8 +3,8 @@ import "dotenv/config.js";
 import { connectDB } from "./db/db.js";
 import userRoutes from "./routes/userRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
-import { error } from "./middlewares/error.js";
 import cors from "cors";
+import { errorMiddleware } from "./middlewares/error.js";
 
 connectDB();
 
@@ -20,7 +20,7 @@ app.use(cors(corsOptions));
 
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
-app.use(error);
+app.use(errorMiddleware);
 app.use(
   cors({
     origin: "*",

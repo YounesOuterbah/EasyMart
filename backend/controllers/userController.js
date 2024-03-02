@@ -1,10 +1,10 @@
 import bcrypt from "bcryptjs";
 import { User } from "../models/User.js";
-import { error } from "../middlewares/error.js";
+import { errorMiddleware } from "../middlewares/error.js";
 
 export const updateUser = async (req, res, next) => {
   if (req.user.id !== req.params.id) {
-    return next(error(401, "You can update only your account!"));
+    return next(errorMiddleware(401, "You can update only your account!"));
   }
   try {
     if (req.body.password) {
@@ -32,7 +32,7 @@ export const updateUser = async (req, res, next) => {
 
 export const deleteUser = async (req, res, next) => {
   if (req.user.id !== req.params.id) {
-    return next(error(401, "You can delete only your account!"));
+    return next(errorMiddleware(401, "You can delete only your account!"));
   }
   try {
     await User.findByIdAndDelete(req.params.id);

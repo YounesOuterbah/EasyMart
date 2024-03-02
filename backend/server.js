@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: true // Specify your frontend origin
+  origin: "https://grocery-store-intern-uj7c.vercel.app/", // Specify your frontend origin
   credentials: true, // Allow credentials (cookies)
 };
 
@@ -22,10 +22,10 @@ app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use(error);
 app.use(
-    cors({
-        origin: "*",
-        credentials: true,
-    })
+  cors({
+    origin: "*",
+    credentials: true,
+  })
 );
 
 const PORT = process.env.PORT || 3344;

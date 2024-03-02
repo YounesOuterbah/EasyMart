@@ -11,10 +11,16 @@ connectDB();
 const app = express();
 app.use(express.json());
 
+const corsOptions = {
+  origin: "https://grocery-store-intern-uj7c.vercel.app", // Specify your frontend origin
+  credentials: true, // Allow credentials (cookies)
+};
+
+app.use(cors(corsOptions));
+
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use(error);
-app.use(cors({origin: "https://grocery-store-intern.vercel.app", credentials: true,}));
 
 const PORT = process.env.PORT || 3344;
 app.listen(PORT, () => {

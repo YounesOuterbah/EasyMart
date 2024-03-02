@@ -14,12 +14,13 @@ app.use(express.json());
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use(error);
-app.use(
-    cors({
-        origin: "*",
-        credentials: true,
-    })
-);
+
+const corsOptions = {
+  origin: "https://grocery-store-intern-uj7c.vercel.app/",
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 3344;
 app.listen(PORT, () => {

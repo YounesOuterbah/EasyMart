@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: "https://grocery-store-intern-uj7c.vercel.app", // Specify your frontend origin
+  origin: "*", // Specify your frontend origin
   credentials: true, // Allow credentials (cookies)
 };
 

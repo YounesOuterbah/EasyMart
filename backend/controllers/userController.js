@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import { User } from "../models/User.js";
-import { errorMiddleware } from "../middlewares/error.js";
+import { errorMiddleware } from "../middlewares/errorMiddle.js";
 
 export const updateUser = async (req, res, next) => {
   if (req.user.id !== req.params.id) {

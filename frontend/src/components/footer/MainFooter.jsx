@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import img from "/shopping-bag.png";
 
 export default function MainFooter() {
@@ -10,9 +11,12 @@ export default function MainFooter() {
 
   const accountLinks = ["Wishlist", "Cart", "Customer Support"];
 
-  const usefulLinks = ["About Us", "Contact"];
+  const usefulLinks = ["About Us", <Link to="contact">Contact</Link>];
 
-  const helpCenterLinks = ["Privacy Policy", "Terms of Use"];
+  const helpCenterLinks = [
+    <Link to="/policy">Privacy Policy</Link>,
+    <Link to="/terms">Terms of Use</Link>,
+  ];
   return (
     <ul className="flex pt-12 flex-wrap flex-col lg:flex-row items-center justify-between border-b pb-6">
       <li className="self-start">

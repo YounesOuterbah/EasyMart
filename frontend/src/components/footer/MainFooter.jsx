@@ -11,7 +11,7 @@ export default function MainFooter() {
 
   const accountLinks = ["Wishlist", "Cart", "Customer Support"];
 
-  const usefulLinks = ["About Us", <Link to="contact">Contact</Link>];
+  const usefulLinks = [<Link to="about">About Us</Link>, <Link to="contact">Contact</Link>];
 
   const helpCenterLinks = [
     <Link to="/policy">Privacy Policy</Link>,

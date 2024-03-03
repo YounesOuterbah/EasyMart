@@ -9,7 +9,7 @@ export default function Explore() {
           <h1 className="text-3xl text-[--color-text]">Explore Categories</h1>
           <Link
             to="category"
-            className="text-lg text-[--color-text] cursor-pointer duration-300 hover:text-red-600"
+            className="text-lg text-[--color-text] cursor-pointer duration-300 hover:text-green-300"
           >
             See All &gt;
           </Link>

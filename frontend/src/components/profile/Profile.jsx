@@ -60,7 +60,7 @@ export default function Profile() {
       const res = await fetch(
         `https://grocerystoreintern.onrender.com/api/user/update/${currentUser._id}`,
         {
-          method: "POST",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },

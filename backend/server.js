@@ -21,12 +21,6 @@ app.use(cors(corsOptions));
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use(errorMiddleware);
-app.use(
-  cors({
-    origin: "*",
-    credentials: true,
-  })
-);
 
 const PORT = process.env.PORT || 3344;
 app.listen(PORT, () => {

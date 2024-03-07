@@ -3,6 +3,7 @@ import "dotenv/config.js";
 import { connectDB } from "./db/db.js";
 import userRoutes from "./routes/userRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
+import emailRoutes from "./routes/emailRoutes.js";
 import cors from "cors";
 import { errorMiddleware } from "./middlewares/errorMiddle.js";
 
@@ -20,6 +21,7 @@ app.use(cors(corsOptions));
 
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/email", emailRoutes);
 app.use(errorMiddleware);
 
 const PORT = process.env.PORT || 3344;

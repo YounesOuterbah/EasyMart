@@ -69,7 +69,7 @@ export default function Header() {
             )}
           </Link>
           {currentUser ? (
-            <Link to="/profile">
+            <Link to="/dashboard">
               <img
                 src={currentUser.profilePicture}
                 className="rounded-full w-8 h-8 object-cover"

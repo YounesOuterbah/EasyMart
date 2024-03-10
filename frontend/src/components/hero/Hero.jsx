@@ -1,6 +1,8 @@
 import { useState } from "react";
 import heroBg from "/heroBg.png";
 import heroFront from "/heroFront.png";
+import b1 from "/b1.webp";
+import b2 from "/b2.webp";
 
 export default function Hero() {
   const [email, setEmail] = useState("");
@@ -34,8 +36,8 @@ export default function Hero() {
   };
 
   return (
-    <div className="hero relative bg-[#c5ead9ab]">
-      <img src={heroBg} className="h-full absolute top-0 left-0 object-cover opacity-90 -z-[2]" />
+    <div className="hero relative">
+      {/* <img src={heroBg} className="h-full absolute top-0 left-0 object-cover opacity-90 -z-[2]" />
       <div className="container flex items-center justify-between h-full">
         <div className="flex flex-col justify-center z-10 text-center md:text-left">
           <h1 className="text-6xl w-full md:w-[80%] font-bold text-[--color-text] tracking-tight">
@@ -62,6 +64,10 @@ export default function Hero() {
             className="absolute top-0 right-0 z-[1] hidden md:block"
           />
         </div>
+      </div> */}
+      <div className="container">
+        <img src={b1} alt="banner one" className="w-screen h-[235px] object-contain" />
+        <img src={b2} alt="banner two" className="w-full object-contain" />
       </div>
     </div>
   );

@@ -12,6 +12,8 @@
   "dependencies": {
     "@react-google-maps/api": "^2.19.3",
     "@reduxjs/toolkit": "^2.2.1",
+    "@stripe/react-stripe-js": "^2.5.1",
+    "@stripe/stripe-js": "^3.0.7",
     "@vis.gl/react-google-maps": "^0.7.1",
     "cookie-parser": "^1.4.6",
     "firebase": "^10.8.0",

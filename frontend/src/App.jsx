@@ -13,6 +13,9 @@ import Policy from "./components/Policy";
 import Terms from "./components/Terms";
 import Contact from "./components/Contact";
 import About from "./components/About";
+import Payment from "./components/payment/Payment";
+import Completion from "./components/Completion";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 function App() {
   return (
@@ -28,8 +31,11 @@ function App() {
         <Route path="/terms" element={<Terms />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
+        <Route path="/completion" element={<Completion />} />
+        <Route path="/payment" element={<Payment />} />
+        {/* it should be private route */}
         <Route element={<PrivateRoute />}>
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Route>
         <Route path="/register" element={<Register />} />
       </Routes>

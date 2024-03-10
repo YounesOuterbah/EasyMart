@@ -1,7 +1,38 @@
 import { Link } from "react-router-dom";
 import img from "/shopping-bag.png";
+import { useState } from "react";
 
 export default function MainFooter() {
+  const [email, setEmail] = useState("");
+
+  const handleInputChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const subscribe = async () => {
+    try {
+      const res = await fetch("https://grocerystoreintern.onrender.com/api/email/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userEmail: email,
+          subject: "Subscription Confirmation",
+          htmlTemplate: "<p>Thank you for subscribing to Groceyish!</p>",
+        }),
+      });
+      if (response.ok) {
+        alert("Subscription successful!");
+      } else {
+        throw new Error("Error subscribing");
+      }
+    } catch (error) {
+      console.error("Error subscribing:", error);
+      alert("Error subscribing. Please try again later.");
+    }
+  };
+
   const info = [
     "Address: 1762 School House Road",
     "Call Us: (213) 658-3916",
@@ -35,6 +66,18 @@ export default function MainFooter() {
             {x}
           </p>
         ))}
+        <div className="w-full">
+          <input
+            type="email"
+            className="border p-2 w-full outline-none bg-white"
+            onChange={handleInputChange}
+            value={email}
+            placeholder="Enter your email address"
+          />
+          <button onClick={subscribe} className="bg-[--color-primary] text-white py-2 px-4">
+            Subscribe
+          </button>
+        </div>
       </li>
       <li className="self-start">
         <h1 className="font-bold text-xl text-[--color-text] mb-2 lg:mb-4">Account</h1>

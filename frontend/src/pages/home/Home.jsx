@@ -4,34 +4,12 @@ import Explore from "../../components/explore/Explore";
 import Hero from "../../components/hero/Hero";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import TopBar from "../../components/header/TopBar";
-import Location from "../Location/Location";
-import { useDispatch, useSelector } from "react-redux";
-import { setLocationAllowed } from "../../redux/slices/locationSlice";
-import { useEffect } from "react";
-import { useState } from "react";
+import TopFooter from "../../components/footer/TopFooter";
+import MainFooter from "../../components/footer/MainFooter";
 
 export default function Home() {
-  const [toggle, setToggle] = useState(false);
-  const dispatch = useDispatch();
-  const { isLocationAllowed } = useSelector((state) => state.location);
-
-  useEffect(() => {
-    if (isLocationAllowed === null) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          dispatch(setLocationAllowed(true));
-          setToggle(false);
-        },
-        () => {
-          dispatch(setLocationAllowed(false));
-        }
-      );
-    }
-  }, [isLocationAllowed, dispatch]);
-
   return (
     <div>
-      {!toggle && isLocationAllowed === null && <Location toggle={toggle} setToggle={setToggle} />}
       <TopBar />
       <Hero />
       <Explore />
@@ -57,6 +35,10 @@ export default function Home() {
             offerImage="/heroFront.png"
           />
         </div>
+      </div>
+      <div className="container">
+        <TopFooter />
+        <MainFooter />
       </div>
     </div>
   );

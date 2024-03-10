@@ -1,17 +1,24 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import cartReducer from "./slices/cartSlice";
 import userReducer from "./slices/userSlice";
-import locationReducer from "./slices/locationSlice";
 import storage from "redux-persist/lib/storage";
-import { persistReducer, persistStore } from "redux-persist";
+import {
+  persistReducer,
+  persistStore,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
 
 const rootReducer = combineReducers({
   user: userReducer,
   cart: cartReducer,
-  location: locationReducer,
 });
 
-const persistConfig = { key: "root", version: 1, storage, whitelist: ["location"] };
+const persistConfig = { key: "root", version: 1, storage };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
@@ -19,7 +26,9 @@ const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: false,
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
     }),
 });
 

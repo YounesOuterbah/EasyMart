@@ -8,7 +8,6 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import CategoryProduct from "./components/categories/CategoryProduct";
 import PrivateRoute from "./components/PrivateRoute";
-import Profile from "./components/profile/Profile";
 import Policy from "./components/Policy";
 import Terms from "./components/Terms";
 import Contact from "./components/Contact";
@@ -16,6 +15,9 @@ import About from "./components/About";
 import Payment from "./components/payment/Payment";
 import Completion from "./components/Completion";
 import Dashboard from "./pages/dashboard/Dashboard";
+import Users from "./pages/dashboard/Users";
+import Settings from "./pages/dashboard/Settings";
+import DashboardMain from "./pages/dashboard/DashboardMain";
 
 function App() {
   return (
@@ -33,11 +35,15 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/completion" element={<Completion />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/register" element={<Register />} />
         {/* it should be private route */}
         <Route element={<PrivateRoute />}>
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route path="/dashboard/" element={<DashboardMain />} />
+            <Route path="/dashboard/users" element={<Users />} />
+            <Route path="/dashboard/settings" element={<Settings />} />
+          </Route>
         </Route>
-        <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />
     </BrowserRouter>

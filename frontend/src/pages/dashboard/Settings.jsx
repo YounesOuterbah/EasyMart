@@ -1,3 +1,5 @@
+import Profile from "../../components/profile/Profile";
+
 export default function Settings() {
-  return <div>Settings</div>;
+  return <Profile />;
 }

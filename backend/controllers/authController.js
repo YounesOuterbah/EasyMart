@@ -2,6 +2,16 @@ import { User } from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
+export const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find({}).select("-password");
+    res.send(users);
+  } catch (error) {
+    console.error("Error retrieving users:", error);
+    res.status(500).send("Internal Server Error");
+  }
+};
+
 export const signup = async (req, res, next) => {
   try {
     const { name, email, password } = req.body;

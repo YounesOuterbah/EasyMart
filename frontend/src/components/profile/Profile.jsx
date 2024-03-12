@@ -61,6 +61,7 @@ export default function Profile() {
         `https://grocerystoreintern.onrender.com/api/user/update/${currentUser._id}`,
         {
           method: "PUT",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },
@@ -87,6 +88,7 @@ export default function Profile() {
         `https://grocerystoreintern.onrender.com/api/user/delete/${currentUser._id}`,
         {
           method: "DELETE",
+          credentials: "include",
         }
       );
       const data = await res.json();

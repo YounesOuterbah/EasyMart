@@ -3,7 +3,7 @@ import { updateUser, deleteUser, deleteUsers } from "../controllers/userControll
 import { verifyToken } from "../middlewares/verfiyUser.js";
 const router = express.Router();
 
-router.put("/update/:id", verifyToken, updateUser);
+router.post("/update/:id", verifyToken, updateUser);
 router.delete("/delete/:id", verifyToken, deleteUser);
 router.delete("/remove/:id", deleteUsers);
 

@@ -60,8 +60,7 @@ export default function Profile() {
       const res = await fetch(
         `https://grocerystoreintern.onrender.com/api/user/update/${currentUser._id}`,
         {
-          method: "PUT",
-          credentials: "include",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
@@ -75,7 +74,6 @@ export default function Profile() {
       }
       dispatch(updateUserSuccess(data));
       setUpdateSuccess(true);
-      console.log(res);
     } catch (error) {
       dispatch(updateUserFailure(error));
     }

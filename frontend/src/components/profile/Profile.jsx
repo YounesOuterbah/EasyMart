@@ -12,6 +12,7 @@ import {
   deleteUserFailure,
   signOut,
 } from "../../redux/slices/userSlice";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Profile() {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ export default function Profile() {
   const [updateSuccess, setUpdateSuccess] = useState(false);
 
   const { currentUser, loading, error } = useSelector((state) => state.user);
+  const navigate = useNavigate();
   useEffect(() => {
     if (image) {
       handleFileUpload(image);
@@ -57,16 +59,13 @@ export default function Profile() {
     e.preventDefault();
     try {
       dispatch(updateUserStart());
-      const res = await fetch(
-        `https://grocerystoreintern.onrender.com/api/user/update/${currentUser._id}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const res = await fetch(`http://localhost:5001/api/user/update/${currentUser._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
       const data = await res.json();
       if (data.success === false) {
         dispatch(updateUserFailure(data));
@@ -82,13 +81,9 @@ export default function Profile() {
   const handleDeleteAccount = async () => {
     try {
       dispatch(deleteUserStart());
-      const res = await fetch(
-        `https://grocerystoreintern.onrender.com/api/user/delete/${currentUser._id}`,
-        {
-          method: "DELETE",
-          credentials: "include",
-        }
-      );
+      const res = await fetch(`http://localhost:5001/api/user/delete/${currentUser._id}`, {
+        method: "DELETE",
+      });
       const data = await res.json();
       if (data.success === false) {
         dispatch(deleteUserFailure(data));
@@ -102,8 +97,9 @@ export default function Profile() {
 
   const handleSignOut = async () => {
     try {
-      await fetch("https://grocerystoreintern.onrender.com/api/auth/signout");
+      await fetch("http://localhost:5001/api/auth/signout");
       dispatch(signOut());
+      navigate("/login");
     } catch (error) {
       console.log(error);
     }
@@ -141,8 +137,8 @@ export default function Profile() {
         <input
           defaultValue={currentUser.name}
           type="text"
-          id="username"
-          placeholder="Username"
+          id="name"
+          placeholder="name"
           className="bg-slate-100 rounded-lg p-3"
           onChange={handleChange}
         />

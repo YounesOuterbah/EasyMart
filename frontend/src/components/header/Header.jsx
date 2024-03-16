@@ -4,12 +4,15 @@ import img from "/shopping-bag.png";
 import { useSelector } from "react-redux";
 import { myProducts } from "../../products";
 import { useEffect, useState } from "react";
+import Location from "../../pages/Location/Location";
+import Profile from "../profile/Profile";
 
 export default function Header() {
   const { cartItems } = useSelector((state) => state.cart);
   const { currentUser } = useSelector((state) => state.user);
   const [filterData, setFilterData] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const [open, setOpen] = useState(false);
 
   const filterProduct = (e) => {
     const inputValue = e.target.value.toLowerCase();
@@ -31,6 +34,10 @@ export default function Header() {
             <div className="-mt-1 text-slate-400 text-sm">GROCERY</div>
           </div>
         </Link>
+        <button onClick={() => setOpen(false)} className="bg-slate-400 p-2 rounded text-white mt-2">
+          Select Location
+        </button>
+        {!open && <Location setOpen={setOpen} open={open} />}
         <div className="flex w-screen md:w-1/2 my-4 md:my-0 relative">
           <input
             type="search"
@@ -69,13 +76,23 @@ export default function Header() {
             )}
           </Link>
           {currentUser ? (
-            <Link to="/dashboard">
-              <img
-                src={currentUser.profilePicture}
-                className="rounded-full w-8 h-8 object-cover"
-                alt="profile"
-              />
-            </Link>
+            currentUser.isAdmin ? (
+              <Link to="/dashboard">
+                <img
+                  src={currentUser.profilePicture}
+                  className="rounded-full w-8 h-8 object-cover"
+                  alt="profile"
+                />
+              </Link>
+            ) : (
+              <Link to="/profile">
+                <img
+                  src={currentUser.profilePicture}
+                  className="rounded-full w-8 h-8 object-cover"
+                  alt="profile"
+                />
+              </Link>
+            )
           ) : (
             <Link to="/login">Login</Link>
           )}

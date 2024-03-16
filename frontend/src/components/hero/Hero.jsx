@@ -5,35 +5,35 @@ import b1 from "/b1.webp";
 import b2 from "/b2.webp";
 
 export default function Hero() {
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
 
-  const handleInputChange = (event) => {
-    setEmail(event.target.value);
-  };
+  // const handleInputChange = (event) => {
+  //   setEmail(event.target.value);
+  // };
 
-  const subscribe = async () => {
-    try {
-      const res = await fetch("https://grocerystoreintern.onrender.com/api/email/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userEmail: email,
-          subject: "Subscription Confirmation",
-          htmlTemplate: "<p>Thank you for subscribing to Groceyish!</p>",
-        }),
-      });
-      if (response.ok) {
-        alert("Subscription successful!");
-      } else {
-        throw new Error("Error subscribing");
-      }
-    } catch (error) {
-      console.error("Error subscribing:", error);
-      alert("Error subscribing. Please try again later.");
-    }
-  };
+  // const subscribe = async () => {
+  //   try {
+  //     const res = await fetch("https://grocerystoreintern.onrender.com/api/email/send-email", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         userEmail: email,
+  //         subject: "Subscription Confirmation",
+  //         htmlTemplate: "<p>Thank you for subscribing to Groceyish!</p>",
+  //       }),
+  //     });
+  //     if (response.ok) {
+  //       alert("Subscription successful!");
+  //     } else {
+  //       throw new Error("Error subscribing");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error subscribing:", error);
+  //     alert("Error subscribing. Please try again later.");
+  //   }
+  // };
 
   return (
     <div className="hero relative">

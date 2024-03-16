@@ -1,34 +1,19 @@
-import bcrypt from "bcryptjs";
 import { User } from "../models/User.js";
 import { errorMiddleware } from "../middlewares/errorMiddle.js";
 
 export const updateUser = async (req, res, next) => {
-  if (req.user.id !== req.params.id) {
-    return next(errorMiddleware(401, "You can update only your account!"));
-  }
-  try {
-    if (req.body.password) {
-      req.body.password = await bcrypt.hash(req.body.password, 10);
-    }
-
-    const updatedUser = await User.findByIdAndUpdate(
-      req.params.id,
-      {
-        $set: {
-          name: req.body.name,
-          email: req.body.email,
-          password: req.body.password,
-          profilePicture: req.body.profilePicture,
-        },
+  const updatedUser = await User.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: {
+        name: req.body.name,
+        email: req.body.email,
       },
-      { new: true }
-    );
+    },
+    { new: true }
+  ).select("-password");
 
-    const { password, ...rest } = updatedUser._doc;
-    res.status(200).json(rest);
-  } catch (error) {
-    next(error);
-  }
+  res.status(200).json(updatedUser);
 };
 
 export const deleteUser = async (req, res, next) => {

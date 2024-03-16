@@ -7,7 +7,7 @@ export default function Users() {
 
   const getUsers = async () => {
     try {
-      const res = await fetch("https://grocerystoreintern.onrender.com/api/auth/users");
+      const res = await fetch("http://localhost:5001/api/auth/users");
       const data = await res.json();
       setUsers(data);
     } catch (error) {
@@ -17,12 +17,9 @@ export default function Users() {
 
   const deleteUser = async () => {
     try {
-      const res = await fetch(
-        `https://grocerystoreintern.onrender.com/api/user/remove/${userIdToDelete}`,
-        {
-          method: "DELETE",
-        }
-      );
+      const res = await fetch(`http://localhost:5001/api/user/remove/${userIdToDelete}`, {
+        method: "DELETE",
+      });
       if (res.ok) {
         setUsers(users.filter((user) => user._id !== userIdToDelete));
         setToggle(false);

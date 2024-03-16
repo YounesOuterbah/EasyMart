@@ -18,6 +18,8 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Users from "./pages/dashboard/Users";
 import Settings from "./pages/dashboard/Settings";
 import DashboardMain from "./pages/dashboard/DashboardMain";
+import Location from "./pages/Location/Location";
+import Profile from "./components/profile/Profile";
 
 function App() {
   return (
@@ -36,6 +38,7 @@ function App() {
         <Route path="/completion" element={<Completion />} />
         <Route path="/payment" element={<Payment />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<Profile />} />
         {/* it should be private route */}
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<Dashboard />}>

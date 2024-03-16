@@ -16,7 +16,7 @@ export default function Login() {
     e.preventDefault();
     try {
       dispatch(signInStart());
-      const res = await fetch("http://localhost:5001/api/auth/signin", {
+      const res = await fetch("https://grocerystoreintern.onrender.com/api/auth/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -37,6 +37,11 @@ export default function Login() {
     <div className="py-6">
       <div className="container px-3 max-w-lg">
         <h1 className="text-3xl text-center font-bold mb-6">Sign in</h1>
+        <span className="text-center block font-bold">
+          admin account: <br />
+          younes@gmail.com <br />
+          password: 12345678
+        </span>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <input
             type="email"

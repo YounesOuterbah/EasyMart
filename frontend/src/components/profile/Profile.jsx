@@ -59,13 +59,16 @@ export default function Profile() {
     e.preventDefault();
     try {
       dispatch(updateUserStart());
-      const res = await fetch(`http://localhost:5001/api/user/update/${currentUser._id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        `https://grocerystoreintern.onrender.com/api/user/update/${currentUser._id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       const data = await res.json();
       if (data.success === false) {
         dispatch(updateUserFailure(data));
@@ -81,9 +84,12 @@ export default function Profile() {
   const handleDeleteAccount = async () => {
     try {
       dispatch(deleteUserStart());
-      const res = await fetch(`http://localhost:5001/api/user/delete/${currentUser._id}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `https://grocerystoreintern.onrender.com/api/user/delete/${currentUser._id}`,
+        {
+          method: "DELETE",
+        }
+      );
       const data = await res.json();
       if (data.success === false) {
         dispatch(deleteUserFailure(data));
@@ -97,7 +103,7 @@ export default function Profile() {
 
   const handleSignOut = async () => {
     try {
-      await fetch("http://localhost:5001/api/auth/signout");
+      await fetch("https://grocerystoreintern.onrender.com/api/auth/signout");
       dispatch(signOut());
       navigate("/login");
     } catch (error) {

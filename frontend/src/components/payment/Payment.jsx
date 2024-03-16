@@ -8,12 +8,12 @@ export default function Payment() {
   const [clientSecret, setClientSecret] = useState("");
 
   async function paymentMethod() {
-    const res = await fetch("http://localhost:5001/config");
+    const res = await fetch("https://grocerystoreintern.onrender.com/config");
     const { publishableKey } = await res.json();
     setStripePromise(loadStripe(publishableKey));
   }
   async function createPaymentMethod() {
-    const res = await fetch("http://localhost:5001/create-payment-intent", {
+    const res = await fetch("https://grocerystoreintern.onrender.com/create-payment-intent", {
       method: "POST",
       credentials: "include",
       body: JSON.stringify({}),

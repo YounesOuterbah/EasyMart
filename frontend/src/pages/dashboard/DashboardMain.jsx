@@ -5,7 +5,7 @@ export default function DashboardMain() {
   const [users, setUsers] = useState();
   const getUsers = async () => {
     try {
-      const res = await fetch("http://localhost:5001/api/auth/users");
+      const res = await fetch("https://grocerystoreintern.onrender.com/api/auth/users");
       const data = await res.json();
       setUsers(data);
       console.log(data);
